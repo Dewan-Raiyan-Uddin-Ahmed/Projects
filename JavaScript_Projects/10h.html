@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            font-family: Arial;
+        }
+        
+        .cost-input{
+            font-size: 15px;
+            padding: 10px;
+
+        }
+        .calcBtn{
+            background-color: green;
+            color:white;
+            border: none;
+            font-size: 15px;
+            padding: 12px 15px;
+            cursor: pointer;
+        }
+
+        .p-color{
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+    handleCostKeydown(event);
+    " onkeyup="
+    // let inputElement2 = document.querySelector('.js-cost-input');
+    // let myCost2 = Number(inputElement2.value);
+
+    // if(myCost2<0){
+    //     document.querySelector('.js-total-cost').innerHTML='Error: cost can not be less than $0';
+
+    // }else{
+    //     document.querySelector('.js-total-cost').innerHTML='';
+    // }
+    // cost();
+    ">
+    <button onclick="
+    cost();
+    "class="calcBtn">Calculator</button>
+
+    <p class="js-total-cost"></p>
+    
+
+
+    <script>
+
+
+        function handleCostKeydown(keyEvent){
+            keyEvent = event.key
+            if(keyEvent ==='Enter'){
+            cost();
+            }
+        };
+        function cost(){
+            const inputElement = document.querySelector('.js-cost-input');
+            let myCost = Number(inputElement.value);
+            if(myCost<0){
+                document.querySelector('.js-total-cost').classList.add('p-color');
+                document.querySelector('.js-total-cost').innerHTML='Error : Cost can not be less than $0';
+            }else if(myCost<40){
+                myCost = myCost+10;
+                document.querySelector('.js-total-cost').classList.remove('p-color');
+                document.querySelector('.js-total-cost').innerHTML=`$${myCost}`;
+            }else if(myCost>=40){
+                document.querySelector('.js-total-cost').classList.remove('p-color');
+                document.querySelector('.js-total-cost').innerHTML=`$${myCost}`;
+            }
+        }
+
+
+        
+    </script>
+</body>
+</html>

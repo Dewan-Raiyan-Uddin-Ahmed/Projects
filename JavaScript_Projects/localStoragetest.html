@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="
+    method(1);
+        ">+1</button>
+    <script>
+        let calculation = 0;
+        let storedValue = JSON.parse(localStorage.getItem('data'));
+        console.log(`Stored Value: ${storedValue}`);
+        console.log(typeof storedValue);
+
+        function method(value){
+            calculation = calculation + value;
+            localStorage.setItem('data',JSON.stringify(calculation));
+            console.log(calculation);
+        }
+    </script>
+</body>
+</html>

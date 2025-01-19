@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="
+        playGame('heads');
+        ">Heads</button>
+    <button onclick="
+    playGame('tails')
+    ">Tails</button>
+
+    <p class="js-score"></p>
+
+    <script>
+        
+        const obj = {
+            win : 0,
+            losses : 0
+        };
+
+    function playGame(guess){
+
+        let randomValue = Math.random();
+        let computerMove = '';
+
+        if(randomValue>0.5){
+                computerMove = 'heads'
+            }else{
+                computerMove = 'tails'
+        }
+
+
+        if(guess === computerMove){
+            obj.win = obj.win+1;
+            console.log(`You win !!!`);
+            console.log(obj);
+        }else{
+            obj.losses = obj.losses+1;
+            console.log(`You lose !!!`);
+            console.log(obj);
+        }
+        localStorage.setItem('data',JSON.stringify(obj));
+        document.querySelector('.js-score').innerHTML = `Win : ${obj.win}, loss : ${obj.losses}`;
+        
+    };
+
+    let storedValue = JSON.parse(localStorage.getItem('data'));
+    console.log(storedValue);
+    
+    
+
+
+    </script>
+</body>
+</html>
