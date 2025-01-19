@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Asignment</title>
+    <style>
+        .container{
+            height: 500px;
+            width: 500px;
+            border: 2px solid black;
+        }
+        .img{
+            margin: 0 auto;
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+        }
+        .clickBtn{
+            padding: 20px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+
+        </div>
+        <h1 class="follower">follower</h1>
+        <button class="clickBtn">click here</button>
+    </div>
+    <script>
+        const clickBtn = document.querySelector('.clickBtn');
+        const h1 = document.querySelector('.follower');
+        const obj ={
+            follower : 35000
+        }
+        clickBtn.addEventListener('click',()=>{
+            h1.innerText = `${obj.follower}`
+        })
+    </script>
+</body>
+</html>
