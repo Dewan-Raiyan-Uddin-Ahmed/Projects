@@ -2,7 +2,7 @@ const sayRaiyan = function(){
     console.log("raiyan");   
 }
 const changeText = function(){
-    document.querySelector('h1').innerHTML = 'Best JS series'
+    document.querySelector('h1').innerHTML = 'JavaScript'
 }
 
 const changeMe = setTimeout(changeText,2000);
